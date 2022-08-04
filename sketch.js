@@ -644,5 +644,14 @@ function readIncoming(inMessage) {
   console.log(inMessage);
 }
 
+function json(url) {
+  return fetch(url).then(res => res.json());
+}
 
-//
+let apiKey = '660038688900c8e458deb4b8dd7360128149229e6fc2b504eb10ce45';
+json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+  console.log(data.ip);
+  console.log(data.city);
+  console.log(data.country_code);
+  // so many more properties
+});
